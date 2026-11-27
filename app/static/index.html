@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keitaro Wrapper</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1>Keitaro Wrapper</h1>
+  <nav>
+    <button id="tab-create" class="tab active">Создание кампании</button>
+    <button id="tab-editor" class="tab">Редактор офферов</button>
+  </nav>
+</header>
+
+<div id="toast" class="toast hidden"></div>
+
+<main>
+  <!-- ================== СОЗДАНИЕ КАМПАНИИ ================== -->
+  <section id="panel-create" class="panel">
+    <div class="card">
+      <h2>Новая кампания</h2>
+      <form id="create-form">
+        <label>Название кампании
+          <input type="text" id="c-name" placeholder="test_familiya_campaign1" required>
+          <small>Рекомендуется префикс test_фамилия_, например test_ivanov_campaign1</small>
+        </label>
+        <label>Гео-код страны
+          <input type="text" id="c-geo" placeholder="RU, US, GM…" maxlength="2" required>
+          <small>Две латинские буквы — поток будет ловить всех из этой страны</small>
+        </label>
+        <label>Оффер Keitaro
+          <select id="c-offer" required></select>
+          <small id="c-offer-count"></small>
+        </label>
+        <button type="submit" class="primary">Создать кампанию</button>
+      </form>
+    </div>
+
+    <div id="create-result" class="card hidden">
+      <h2>Кампания создана</h2>
+      <p><b id="r-name"></b> (id <span id="r-id"></span>)</p>
+      <ul id="r-streams"></ul>
+      <p><a id="r-link" target="_blank" rel="noopener">Открыть кампанию в админке Keitaro →</a></p>
+    </div>
+  </section>
+
+  <!-- ================== РЕДАКТОР ОФФЕРОВ ================== -->
+  <section id="panel-editor" class="panel hidden">
+    <div class="card">
+      <h2>Выберите кампанию</h2>
+      <select id="e-campaign"></select>
+      <p class="meta" id="e-meta"></p>
+    </div>
+
+    <div class="card" id="e-offers-card">
+      <h2>Офферы потока <span id="e-stream-name"></span></h2>
+      <table id="e-offers-table">
+        <thead>
+          <tr><th>Оффер</th><th>ID</th><th>Вес</th><th>Доля, %</th><th>Состояние</th><th></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p id="e-empty" class="empty hidden">В потоке нет активных офферов.</p>
+
+      <form id="add-offer-form">
+        <select id="a-offer" required></select>
+        <input type="number" id="a-share" min="0" step="0.1" placeholder="Доля (необязательно)">
+        <button type="submit" class="primary">Добавить оффер</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+:root {
+  --bg: #0f1420; --card: #1a2130; --line: #2a3346;
+  --text: #e8ecf4; --muted: #93a0b8; --accent: #4f8cff; --danger: #ff5d5d;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg); color: var(--text);
+}
+header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 28px; border-bottom: 1px solid var(--line);
+}
+h1 { font-size: 18px; margin: 0; }
+.tab {
+  background: none; border: 1px solid var(--line); color: var(--muted);
+  padding: 8px 16px; border-radius: 8px; cursor: pointer; margin-left: 8px;
+}
+.tab.active { color: var(--text); border-color: var(--accent); }
+main { max-width: 860px; margin: 24px auto; padding: 0 16px; }
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 12px; padding: 20px 24px; margin-bottom: 16px;
+}
+h2 { font-size: 16px; margin: 0 0 16px; }
+label { display: block; margin-bottom: 14px; color: var(--muted); font-size: 13px; }
+input, select {
+  display: block; width: 100%; margin-top: 6px; padding: 10px 12px;
+  background: var(--bg); color: var(--text); border: 1px solid var(--line);
+  border-radius: 8px; font-size: 14px;
+}
+small { display: block; margin-top: 4px; color: var(--muted); }
+button.primary {
+  background: var(--accent); border: none; color: #fff; padding: 10px 18px;
+  border-radius: 8px; font-size: 14px; cursor: pointer; margin-top: 8px;
+}
+button.primary:hover { filter: brightness(1.1); }
+table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); font-size: 14px; }
+th { color: var(--muted); font-weight: 500; }
+td button.remove {
+  background: none; border: 1px solid var(--danger); color: var(--danger);
+  padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: 12px;
+}
+td button.remove:hover { background: var(--danger); color: #fff; }
+#add-offer-form { display: flex; gap: 10px; align-items: flex-end; }
+#add-offer-form select { margin-top: 0; }
+#add-offer-form input { width: 160px; margin-top: 0; }
+#add-offer-form button { margin-top: 0; }
+.meta { color: var(--muted); font-size: 13px; margin: 10px 0 0; }
+.empty { color: var(--muted); }
+.hidden { display: none !important; }
+.toast {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+  background: var(--card); border: 1px solid var(--line); color: var(--text);
+  padding: 12px 20px; border-radius: 10px; z-index: 10; max-width: 80vw;
+}
+.toast.error { border-color: var(--danger); color: #ffb0b0; }
+a { color: var(--accent); }
